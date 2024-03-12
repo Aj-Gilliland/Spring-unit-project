@@ -1,19 +1,17 @@
-package com.example.demo.User;
+package com.example.demo.Chatroom;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class UserConfig {
+public class ChatroomConfig {
     @Bean
-    CommandLineRunner UserCommandLineRunner(UserRepository repository) {
+    CommandLineRunner ChatroomCommandLineRunner(ChatroomRepository crr) {
         return args -> {
-            User testUser = new User(
-                    //empty instance
+            Chatroom test = new Chatroom(
+
             );
-            repository.save(testUser);
         };
     }
 }
-
