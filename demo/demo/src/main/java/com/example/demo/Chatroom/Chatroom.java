@@ -24,4 +24,7 @@ public class Chatroom {
     @ManyToMany(mappedBy = "chatrooms")
     private Set<User> users = new HashSet<>();
 
+    public Chatroom() {
+
+    }
 }
