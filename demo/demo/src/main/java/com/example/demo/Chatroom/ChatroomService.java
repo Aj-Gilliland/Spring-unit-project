@@ -9,4 +9,6 @@ public class ChatroomService {
     private ChatroomRepository crr;
 
     public List<Chatroom> getAll() { return crr.findAll(); }
+
+    public void insertChatroom(Chatroom chatroom) { crr.save(chatroom); }
 }

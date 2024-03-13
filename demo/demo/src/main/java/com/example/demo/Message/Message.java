@@ -25,15 +25,23 @@ public class Message {
     private Long id;
     @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(
-            name = "message_id",
+            name = "user_id",
             referencedColumnName = "id"
     )
     private User user;
     private String content;
     private LocalDate postDate;
-    private String reply;
+    @ManyToMany
+    @JoinTable(
+            name = "message_thread",
+            joinColumns = @JoinColumn(name = "message_id"),
+            inverseJoinColumns = @JoinColumn(name = "reply_id")
+    )
+    private Set<Message> replies = new HashSet<>();
+    @ManyToMany(mappedBy = "replies")
+    private Set<Message> repliedToWith = new HashSet<>();
+
 
     public Message() {
-
     }
 }
