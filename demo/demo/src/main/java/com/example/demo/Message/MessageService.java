@@ -1,5 +1,4 @@
 package com.example.demo.Message;
 
-public class MsgController {
-
+public class MessageService {
 }

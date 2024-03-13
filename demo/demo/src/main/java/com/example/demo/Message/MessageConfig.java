@@ -6,9 +6,9 @@ import java.time.*;
 import java.util.List;
 
 @Configuration
-public class MsgConfig {
+public class MessageConfig {
     @Bean
-    CommandLineRunner commandLineRunnerMsg(MsgRepository msgRepository){
+    CommandLineRunner commandLineRunnerMsg(MessageRepository messageRepository){
         return args -> {
             Message Billy = new Message(
                     "Does anyone remember the time of that important meeting?",
@@ -22,7 +22,7 @@ public class MsgConfig {
                     "Thank you so much bob"
             );
 
-            msgRepository.saveAll(List.of(Billy,Bob));
+            messageRepository.saveAll(List.of(Billy,Bob));
         };
     }
 }
