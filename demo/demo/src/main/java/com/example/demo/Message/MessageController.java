@@ -13,6 +13,4 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @GetMapping("/message")
-    public List<Message> getAll() { return messageService.getAll(); }
 }

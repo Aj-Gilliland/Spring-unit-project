@@ -8,5 +8,4 @@ public class MessageService {
     @Autowired
     private MessageRepository messageRepository;
 
-    public List<Message> getAll() { return messageRepository.findAll(); }
 }

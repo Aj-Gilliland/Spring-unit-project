@@ -3,6 +3,7 @@ package com.example.demo.User;
 import com.example.demo.Chatroom.Chatroom;
 import com.example.demo.Message.Message;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -39,6 +40,9 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "chatroom_id")
     )
     private Set<Chatroom> chatrooms = new HashSet<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    private Set<Message> messages = new HashSet<>();
 
     public User() {
     }

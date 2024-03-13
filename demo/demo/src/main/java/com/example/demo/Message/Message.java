@@ -3,13 +3,15 @@ package com.example.demo.Message;
 import com.example.demo.User.User;
 import jakarta.persistence.*;
 import jakarta.persistence.SequenceGenerator;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.*;
 
-
+@Data
+@Entity
+@Table
 public class Message {
-
     @Id
     @SequenceGenerator(
             name = "msg_sequence",
@@ -20,35 +22,18 @@ public class Message {
             strategy = GenerationType.IDENTITY,
             generator = "msg_sequence"
     )
-
     private Long id;
-
-    private Set<User> users = new HashSet<>();
-
+    @ManyToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(
+            name = "message_id",
+            referencedColumnName = "id"
+    )
+    private User user;
     private String content;
     private LocalDate postDate;
-
     private String reply;
 
-    public Message(Long id,
-//                   Set<User> users,
-                   String content,
-                   LocalDate postDate,
-                   String reply) {
-        this.id = id;
-//        this.users = users;
-        this.content = content;
-        this.postDate = postDate;
-        this.reply = reply;
-    }
+    public Message() {
 
-    public Message( //Set<User> users,
-                   String content,
-                   LocalDate postDate,
-                   String reply) {
-//        this.users = users;
-        this.content = content;
-        this.postDate = postDate;
-        this.reply = reply;
     }
 }
