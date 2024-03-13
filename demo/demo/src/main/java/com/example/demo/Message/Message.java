@@ -3,11 +3,15 @@ package com.example.demo.Message;
 import com.example.demo.User.User;
 import jakarta.persistence.*;
 import jakarta.persistence.SequenceGenerator;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.*;
 
 
+@Data
+@Entity
+@Table
 public class Message {
 
     @Id
@@ -51,50 +55,4 @@ public class Message {
         this.postDate = postDate;
         this.reply = reply;
     }
-
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id){
-        this.id = id;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
-
-    public String getContent() {
-        return content;
-    }
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public LocalDate getPostDate() {
-        return postDate;
-    }
-    public void setPostDate(LocalDate postDate) {
-        this.postDate = postDate;
-    }
-
-    public String getReply() {
-        return reply;
-    }
-    public void setReply(String reply) {
-        this.reply = reply;
-    }
-
-    @Override
-    public String toString(){
-        return "Club{"+
-                "id=" + id +
-                ", content=" + content + '\'' +
-                ", postDate="+postDate + '\'' +
-                ", reply="+reply+ '\'' +
-                "}";
-    }
-
 }
