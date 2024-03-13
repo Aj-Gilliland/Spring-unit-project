@@ -93,6 +93,7 @@ public class Message {
                 "id=" + id +
                 ", content=" + content + '\'' +
                 ", postDate="+postDate + '\'' +
+                ", reply="+reply+ '\'' +
                 "}";
     }
 
