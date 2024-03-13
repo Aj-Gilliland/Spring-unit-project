@@ -1,7 +1,7 @@
 package com.example.demo.Message;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MessageRepository {
-    void saveAll(List<Message> billy);
+public interface MessageRepository extends JpaRepository<Message, Long>{
+
 }
