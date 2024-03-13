@@ -1,5 +1,6 @@
 package com.example.demo.User;
 
+import com.example.demo.Message.MessageRepository;
 import com.example.demo.Chatroom.ChatroomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
