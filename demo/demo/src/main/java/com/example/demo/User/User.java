@@ -29,23 +29,20 @@ public class User {
             strategy = GenerationType.SEQUENCE,
             generator = "user_sequence"
     )
-
-
-
     private long id;
-    private String fName;
-    private String lName;
-    private String email;
+    private String fName;//first name
+    private String lName;//last name
+    private String email;//email
     @ManyToMany
     @JoinTable(
             name = "user_chatrooms",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "chatroom_id")
     )
-    private Set<Chatroom> chatrooms = new HashSet<>();
+    private Set<Chatroom> chatrooms = new HashSet<>();//all chatrooms the user is in
     @JsonIgnore
     @OneToMany(mappedBy = "user")
-    private Set<Message> messages = new HashSet<>();
+    private Set<Message> messages = new HashSet<>();//all messages owned by a user(history)
 
     public User() {
     }

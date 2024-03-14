@@ -1,5 +1,6 @@
 package com.example.demo.Message;
 
+import com.example.demo.Chatroom.Chatroom;
 import com.example.demo.User.User;
 import jakarta.persistence.*;
 import jakarta.persistence.SequenceGenerator;
@@ -28,8 +29,8 @@ public class Message {
             name = "user_id",
             referencedColumnName = "id"
     )
-    private User user;
-    private String content;
+    private User user;//the person who owns the message
+    private String content;//content of message
     private LocalDate postDate;
     @ManyToMany
     @JoinTable(
@@ -37,11 +38,14 @@ public class Message {
             joinColumns = @JoinColumn(name = "message_id"),
             inverseJoinColumns = @JoinColumn(name = "reply_id")
     )
-    private Set<Message> replies = new HashSet<>();
-    @ManyToMany(mappedBy = "replies")
-    private Set<Message> repliedToWith = new HashSet<>();
-
+    private Set<Message> replies = new HashSet<>();//the actual message that is being replied with
+//    @ManyToMany(mappedBy = "user_messages")
+//    private Set<User> users = new HashSet<>();//links all messages to the user history
+    @ManyToMany(mappedBy = "messages_in_the_chatroom")
+    private Set<Chatroom> chatroom_message = new HashSet<>();//links message to a chatroom
 
     public Message() {
+
     }
+
 }

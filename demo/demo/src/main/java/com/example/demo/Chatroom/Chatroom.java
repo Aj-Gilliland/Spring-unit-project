@@ -1,5 +1,6 @@
 package com.example.demo.Chatroom;
 
+import com.example.demo.Message.Message;
 import com.example.demo.User.User;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -22,7 +23,14 @@ public class Chatroom {
     private Long id;
     private String name;
     @ManyToMany(mappedBy = "chatrooms")
-    private Set<User> users = new HashSet<>();
+    private Set<User> users = new HashSet<>();//defines all the users in the chatroom
+    @ManyToMany
+    @JoinTable(
+            name = "messages_in_chatroom",
+            joinColumns = @JoinColumn(name = "message_id"),
+            inverseJoinColumns = @JoinColumn(name = "chatroom_id")
+    )
+    private Set<Message> messages_in_the_chatroom = new HashSet<>();//the chat room message history
 
     public Chatroom() {
 
