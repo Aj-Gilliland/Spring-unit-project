@@ -18,7 +18,7 @@ public class ChatroomController {
     @GetMapping("/makeChatroom")
     public void createChatroom(@RequestBody Chatroom chatroom) { crs.insertChatroom(chatroom); }
 
-    @PutMapping(path = "/addReply/{chatroomId}/{messageId}")//add a message chat room
+    @PutMapping(path =  "/addConversation/{chatroomId}/{messageId}")//add a message chat room
     public void addMessage(
             @PathVariable("chatroomId") Long chatroomId,
             @PathVariable("messageId") Long messageId){

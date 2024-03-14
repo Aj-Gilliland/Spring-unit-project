@@ -13,7 +13,7 @@ import java.util.*;
 
 @Entity
 @Data
-@EqualsAndHashCode(exclude = {"chatrooms"})
+@EqualsAndHashCode(exclude = {"chatrooms","messages"})
 @Table(name = "\"user\"")
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,

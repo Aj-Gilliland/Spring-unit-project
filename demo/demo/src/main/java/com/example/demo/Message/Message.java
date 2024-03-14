@@ -33,7 +33,7 @@ public class Message {
     private String content;//content of message
     private LocalDate postDate;
     @ManyToMany
-    @JoinTable(
+    @JoinTable(//this is not broken DO NOT TOUCH
             name = "message_thread",
             joinColumns = @JoinColumn(name = "message_id"),
             inverseJoinColumns = @JoinColumn(name = "reply_id")
