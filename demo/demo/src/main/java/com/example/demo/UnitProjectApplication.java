@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UntiProjectApplication {
-
+public class UnitProjectApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(UntiProjectApplication.class, args);
+		SpringApplication.run(UnitProjectApplication.class, args);
 	}
 
 }
