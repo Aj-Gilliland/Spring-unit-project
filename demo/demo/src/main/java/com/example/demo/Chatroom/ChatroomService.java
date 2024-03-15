@@ -20,11 +20,11 @@ public class ChatroomService {
     }
     public List<Chatroom> getAll() { return chatroomRepository.findAll(); }
     public void insertChatroom(Chatroom chatroom) { chatroomRepository.save(chatroom); }
-//
-    public void addMessage(Long chatroomId, Long messageId) {
+    public void addConversion(Long chatroomId, Long messageId) {
         Chatroom chatroom = chatroomRepository.findById(chatroomId).orElseThrow(()-> new IllegalStateException("Chatroom #"+chatroomId+" doesn't exist!"));
         Message message = messageRepository.findById(messageId).orElseThrow(()-> new IllegalStateException("Message #"+messageId+" doesn't exist!"));
-        chatroom.getMessages_in_the_chatroom().add(message);
+        chatroom.getMessages().add(message);
+        message.getChatrooms().add(chatroom);
         messageRepository.save(message);
         chatroomRepository.save(chatroom);
     }

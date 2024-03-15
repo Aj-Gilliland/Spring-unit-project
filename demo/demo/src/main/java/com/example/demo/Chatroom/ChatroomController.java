@@ -22,6 +22,7 @@ public class ChatroomController {
     public void addMessage(
             @PathVariable("chatroomId") Long chatroomId,
             @PathVariable("messageId") Long messageId){
-        crs.addMessage(chatroomId, messageId);
+        crs.addConversion(chatroomId, messageId);
     }
+
 }
