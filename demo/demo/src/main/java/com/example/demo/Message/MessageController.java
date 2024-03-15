@@ -1,19 +1,8 @@
 package com.example.demo.Message;
 
-<<<<<<< HEAD
-import com.example.demo.Chatroom.Chatroom;
-import com.example.demo.Chatroom.ChatroomService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-=======
+//
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
->>>>>>> refs/remotes/origin/main
 
 import java.util.List;
 
@@ -23,10 +12,6 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-<<<<<<< HEAD
-    @GetMapping("/messages")
-    public List<Message> getAll() { return messageService.getAll(); }
-=======
     @GetMapping("/getAll")//get all messages
     public List<Message> getAll() { return messageService.getAll(); }
 
@@ -45,8 +30,6 @@ public class MessageController {
             @PathVariable("replyId") Long replyId){
         messageService.addReply(messageId,replyId);
     }
-
->>>>>>> refs/remotes/origin/main
 }
 
 

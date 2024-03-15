@@ -1,35 +1,22 @@
 package com.example.demo.Message;
 
-<<<<<<< HEAD
-import com.example.demo.Chatroom.Chatroom;
-=======
-import com.example.demo.Chatroom.ChatroomRepository;
 import com.example.demo.User.User;
 import com.example.demo.User.UserRepository;
 import jakarta.transaction.Transactional;
->>>>>>> refs/remotes/origin/main
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-<<<<<<< HEAD
 
-@Service
-public class MessageService {
-    @Autowired
-    private MessageRepository messageRepository;
-
-    public List<Message> getAll() { return messageRepository.findAll(); }
-=======
 @Service
 public class MessageService {
     private final UserRepository userRepository;
-    private final ChatroomRepository chatroomRepository;
+//    private final ChatroomRepository chatroomRepository;
     private final MessageRepository messageRepository;
     @Autowired
-    public MessageService(UserRepository userRepository, ChatroomRepository chatroomRepository, MessageRepository messageRepository) {
+    public MessageService(UserRepository userRepository, MessageRepository messageRepository) {
         this.userRepository = userRepository;
-        this.chatroomRepository = chatroomRepository;
+//        this.chatroomRepository = chatroomRepository;
         this.messageRepository = messageRepository;
     }
     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
@@ -51,5 +38,4 @@ public class MessageService {
         userRepository.save(user);
         messageRepository.save(message);
     }
->>>>>>> refs/remotes/origin/main
 }

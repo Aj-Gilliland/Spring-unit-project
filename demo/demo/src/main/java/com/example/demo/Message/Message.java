@@ -7,20 +7,12 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.persistence.SequenceGenerator;
 import lombok.Data;
-<<<<<<< HEAD
-=======
+
 import lombok.EqualsAndHashCode;
->>>>>>> refs/remotes/origin/main
 
 import java.time.LocalDate;
 import java.util.*;
 
-<<<<<<< HEAD
-
-@Data
-@Entity
-@Table
-=======
 @Data
 @EqualsAndHashCode(exclude = {"chatrooms","user"})
 @Entity
@@ -28,7 +20,6 @@ import java.util.*;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
->>>>>>> refs/remotes/origin/main
 public class Message {
     @Id
     @SequenceGenerator(
@@ -61,17 +52,5 @@ public class Message {
 
     public Message() {
     }
-<<<<<<< HEAD
 
-    public Message( //Set<User> users,
-                   String content,
-                   LocalDate postDate,
-                   String reply) {
-//        this.users = users;
-        this.content = content;
-        this.postDate = postDate;
-        this.reply = reply;
-    }
-=======
->>>>>>> refs/remotes/origin/main
 }
