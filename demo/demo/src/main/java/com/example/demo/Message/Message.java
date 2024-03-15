@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Data
-@EqualsAndHashCode(exclude = {"chatrooms"})
+@EqualsAndHashCode(exclude = {"chatrooms","user"})
 @Entity
 @Table
 @JsonIdentityInfo(
@@ -50,7 +50,5 @@ public class Message {
     private Set<Chatroom> chatrooms = new HashSet<>();//links message to a chatroom
 
     public Message() {
-
     }
-
 }

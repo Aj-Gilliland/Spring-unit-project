@@ -27,7 +27,6 @@ public class Chatroom {
             allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "chatroom_sequence")
-
     private Long id;
     private String name;
     @ManyToMany(mappedBy = "chatrooms")
@@ -41,6 +40,5 @@ public class Chatroom {
     private Set<Message> messages = new HashSet<>();//the chat room message history
 
     public Chatroom() {
-
     }
 }
