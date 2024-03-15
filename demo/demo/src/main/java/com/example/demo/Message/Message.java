@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Data
-@EqualsAndHashCode(exclude = {"chatrooms","user"})
+@EqualsAndHashCode(exclude = {"chatrooms"})
 @Entity
 @Table
 @JsonIdentityInfo(
@@ -46,8 +46,6 @@ public class Message {
             inverseJoinColumns = @JoinColumn(name = "reply_id")
     )
     private Set<Message> replies = new HashSet<>();//the actual message that is being replied with
-//    @ManyToMany(mappedBy = "user_messages")
-//    private Set<User> users = new HashSet<>();//links all messages to the user history
     @ManyToMany(mappedBy = "messages")
     private Set<Chatroom> chatrooms = new HashSet<>();//links message to a chatroom
 

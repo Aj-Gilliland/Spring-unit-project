@@ -30,7 +30,7 @@ public class MessageService {
     }
 
     @Transactional
-    public void addMessage(Long messageId,Long userId){
+    public void addMessageToUser(Long messageId,Long userId){
         Message message = messageRepository.findById(messageId).orElseThrow(()-> new IllegalStateException("Message #"+messageId+" doesn't exist!"));
         User user = userRepository.findById(userId).orElseThrow(()-> new IllegalStateException("User #"+userId+" doesn't exist!"));
         user.getMessages().add(message);
