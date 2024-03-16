@@ -66,6 +66,10 @@ Content-Type: application/json
   "admin": false
 }
 
+ADD USER TO CHAT ROOM AND A CHATROOM TO USER
+PATH VARS {{userId}}/{{chatroomId}}
+PUT http://localhost:8080/user/addUserToChatroom/1/1
+
 VIEW ALL CHATROOMS
 GET http://localhost:8080/chatrooms/getAll
 
