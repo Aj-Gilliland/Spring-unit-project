@@ -40,7 +40,8 @@ POST http://localhost:8080/messages
 Content-Type: application/json
 
 {
-
+  "content": "Hello, World!",
+  "postDate": "2024-03-16"
 }
 
 ADD MESSAGE TO USER'S MESSAGE HISTORY
@@ -59,7 +60,10 @@ POST http://localhost:8080/user
 Content-Type: application/json
 
 {
-
+  "fName": "Jane",
+  "lName": "Doe",
+  "email": "janedoe@example.com",
+  "admin": false
 }
 
 VIEW ALL CHATROOMS
@@ -70,12 +74,14 @@ POST http://localhost:8080/chatrooms
 Content-Type: application/json
 
 {
-
+  "name": "General Discussion"
 }
 
 ADD A MESSAGE TO A CHATROOM (conversation)
 PATH VARS {{chatroomId}}/{{messageId}}
 PUT http://localhost:8080/chatrooms/addConversation/1/1
+
+
 
 ### **LICENSE**
 &copy; copyleft
