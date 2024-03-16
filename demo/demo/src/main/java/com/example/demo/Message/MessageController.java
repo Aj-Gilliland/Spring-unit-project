@@ -18,12 +18,14 @@ public class MessageController {
     @PostMapping//make a message
     @GetMapping("/makeMessage")
     public void createMessage(@RequestBody Message message) { messageService.insertMessage(message); }
+
     @PutMapping(path = "/addMessageToUser/{messageId}/{userId}")//add a message to the users list of total messages
     public void addMessageToUser(
             @PathVariable("messageId") Long messageId,
             @PathVariable("userId") Long userId){
         messageService.addMessageToUser(messageId,userId);
     }
+
     @PutMapping(path = "/addReply/{messageId}/{replyId}")//add a message reply
     public void addReply(
             @PathVariable("messageId") Long messageId,

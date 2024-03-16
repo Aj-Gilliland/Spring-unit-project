@@ -20,4 +20,11 @@ public class UserController {
     @PostMapping//makes a user
     @GetMapping("/makeUser")
     public void createUser(@RequestBody User user) { UserService.insertUser(user); }
+
+    @PutMapping(path = "/addUserToChatroom/{userId}/{chatroomId}")//add a user to chatroom
+    public void addUserToChatroom(
+            @PathVariable("userId") Long userId,
+            @PathVariable("chatroomId") Long chatroomId){
+        UserService.addUserToChatroom(userId,chatroomId);
+    }
 }

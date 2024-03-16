@@ -1,5 +1,7 @@
 package com.example.demo.User;
 
+import com.example.demo.Chatroom.Chatroom;
+import com.example.demo.Message.Message;
 import com.example.demo.Message.MessageRepository;
 import com.example.demo.Chatroom.ChatroomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +24,14 @@ public class UserService {
     public List<User> getAll() { return userRepository.findAll(); }
 
     public void insertUser(User user) { userRepository.save(user); }
+
+    public void addUserToChatroom(Long userId, Long chatroomId) {
+        Chatroom chatroom = chatroomRepository.findById(chatroomId).orElseThrow(()-> new IllegalStateException("Chatroom #"+chatroomId+" doesn't exist!"));
+        User user = userRepository.findById(userId).orElseThrow(()-> new IllegalStateException("User #"+userId+" doesn't exist!"));
+        chatroom.getUsers().add(user);
+        user.getChatrooms().add(chatroom);
+        userRepository.save(user);
+        chatroomRepository.save(chatroom);
+    }
+
 }
