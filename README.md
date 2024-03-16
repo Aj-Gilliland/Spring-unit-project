@@ -1,37 +1,81 @@
- ﻿# Spring-unit-project
+# Spring-unit-project
 
-<div align="">
+## Messenger.Nerd
 
-# **Messenger.Nerd**
+### **DESCRIPTION**
+The purpose of Messenger.Nerd is to provide a secure, cloud-based solution for message storage, offering enhanced security over local services.
 
-## **DESCRIPTION**
-The purpose is to provide a secure way to store messages. It is cloud based, making it more secure than a local service.
+### **KEY FEATURES**
 
+#### Set up dependent:
+- Store User History
+- View Messages
+- View all Chat Rooms
+- Delete Messages
+- Delete Chat Rooms
+- Make Chat Rooms
 
+#### User:
+- Make Messages
+- Reply Messages
+- Delete User
+- Make User
 
-## **KEY FEATURES:**
- **Set up dependent:**
-1. Store User History
-2. View Messages
-3. View all Chat Room
-4. Delete Messages
-5. Delete Chat Rooms
-6. Make Chat Rooms
+#### Admin:
+- view all users
 
-  **User:**
-1. Make Messages
-2. Reply Messages
-3. Delete User
-4. Make User
+### **Inspiration**
+Inspired by Slack and the need for secure easy to use, plug and play, organizational chat systems.
 
-  **Admin:**
-1. Can view all users
-## **Inspiration**
-We were inspired by slack and oranizations needing a secure way to chat.
-## **HOW TO USE Messenger.Nerd**
-To use the application admin would have to connect to the endpoints. From there the messages would be stored in the Api. 
-## **LICENSE**
-  <img style="width: 4%; background-color: white" src="copyleft.png" alt="copyleft image">  
-copyleft
-</div>
+### **HOW TO USE**
+Developers first need to choose a structure on how they plan on setting up the messageing system. You can choose to make the admin manage everything from user creation to chat room assignment like slack, or have  a more relaxed method of allowing users to set up who they would like to chat with. From there you'll be able to decide how users, messages, and chatrooms are made/viewed/deleted and assigned with their respective endpoints. We reccomend when setting up to run a check and loop through people who are in the chat room for display and security.
 
+### **ENDPOINT EXAMPLES**
+
+VIEW ALL MESSSAGES
+GET http://localhost:8080/messages/getAll
+
+MAKE MESSAGE
+POST http://localhost:8080/messages
+Content-Type: application/json
+
+{
+
+}
+
+ADD MESSAGE TO USER'S MESSAGE HISTORY
+PATH VARS {{messageId}}/{{userId}}
+PUT http://localhost:8080/messages/addMessageToUser/1/1
+
+ADD A REPLY TO A MESSAGE
+PATH VARS {{messageId}}/{{replyId}}
+PUT http://localhost:8080/messages/addReply/1/2
+
+VIEW ALL USERS
+GET http://localhost:8080/user/getAll
+
+MAKE USER
+POST http://localhost:8080/user
+Content-Type: application/json
+
+{
+
+}
+
+VIEW ALL CHATROOMS
+GET http://localhost:8080/chatrooms/getAll
+
+MAKE A CHATROOM
+POST http://localhost:8080/chatrooms
+Content-Type: application/json
+
+{
+
+}
+
+ADD A MESSAGE TO A CHATROOM (conversation)
+PATH VARS {{chatroomId}}/{{messageId}}
+PUT http://localhost:8080/chatrooms/addConversation/1/1
+
+### **LICENSE**
+&copy; copyleft
