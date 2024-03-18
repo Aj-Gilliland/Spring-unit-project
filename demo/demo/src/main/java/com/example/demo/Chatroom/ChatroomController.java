@@ -25,12 +25,12 @@ public class ChatroomController {
             @PathVariable("messageId") Long messageId){
         crs.addConversion(chatroomId, messageId);
     }
-    @GetMapping("/getChatroom")
-    public Chatroom getChatroom(Long chatroomId) {
+    @GetMapping("/getChatroom/{chatroomId}")
+    public Chatroom getChatroom(@PathVariable("chatroomId") Long chatroomId) {
         return crs.getChatroom(chatroomId);
     }
-    @DeleteMapping("/deleteChatroom")
-    public void deleteChatroom(Long deleteChatroom){
+    @DeleteMapping("/deleteChatroom/{chatroomId}")
+    public void deleteChatroom(@PathVariable("chatroomId") Long deleteChatroom){
         crs.deleteChatroom(deleteChatroom);
     }
 

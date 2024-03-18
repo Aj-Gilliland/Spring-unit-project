@@ -1,7 +1,6 @@
 package com.example.demo.Message;
 
 //
-import com.example.demo.Chatroom.Chatroom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,12 +32,12 @@ public class MessageController {
             @PathVariable("replyId") Long replyId){
         messageService.addReply(messageId,replyId);
     }
-    @GetMapping("/getChatroom")
-    public Message getmessage(Long messageId) {
+    @GetMapping("/getChatroom/{messageId}")
+    public Message getmessage(@PathVariable("messageId") Long messageId) {
         return messageService.getMessage(messageId);
     }
-    @DeleteMapping("/deleteMessage")
-    public void deleteMessage(Long messageId){
+    @DeleteMapping("/deleteMessage/{messageId}")
+    public void deleteMessage(@PathVariable("messageId") Long messageId){
         messageService.deleteMessage(messageId);
     }
 }

@@ -28,13 +28,13 @@ public class UserController {
         UserService.addUserToChatroom(userId,chatroomId);
     }
 
-    @GetMapping("/getUser")
-    public User getUser(Long userId) {
+    @GetMapping("/getUser/{userId}")
+    public User getUser(@PathVariable("userId") Long userId) {
        return UserService.getUser(userId);
-    }
+    }//view one user by id
 
-    @DeleteMapping("/deleteUser")
-    public void deleteUser(Long userId){
+    @DeleteMapping("/deleteUser/{userId}")
+    public void deleteUser(@PathVariable("userId") Long userId){
         UserService.deleteUser(userId);
-    }
+    }// delete a user by id
 }
