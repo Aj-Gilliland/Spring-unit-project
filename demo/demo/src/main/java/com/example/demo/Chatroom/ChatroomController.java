@@ -1,5 +1,6 @@
 package com.example.demo.Chatroom;
 
+import com.example.demo.User.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +24,14 @@ public class ChatroomController {
             @PathVariable("chatroomId") Long chatroomId,
             @PathVariable("messageId") Long messageId){
         crs.addConversion(chatroomId, messageId);
+    }
+    @GetMapping("/getChatroom")
+    public Chatroom getChatroom(Long chatroomId) {
+        return crs.getChatroom(chatroomId);
+    }
+    @DeleteMapping("/deleteChatroom")
+    public void deleteChatroom(Long deleteChatroom){
+        crs.deleteChatroom(deleteChatroom);
     }
 
 }

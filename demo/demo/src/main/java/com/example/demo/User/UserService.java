@@ -33,5 +33,10 @@ public class UserService {
         userRepository.save(user);
         chatroomRepository.save(chatroom);
     }
-
+    public User getUser(Long userId){
+        return userRepository.findById(userId).orElseThrow(()-> new IllegalStateException("Chatroom #"+userId+" doesn't exist!"));
+    }
+    public void deleteUser(Long userId){
+        userRepository.deleteById(userId);
+    }
 }

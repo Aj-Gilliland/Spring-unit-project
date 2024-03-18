@@ -28,4 +28,10 @@ public class ChatroomService {
         messageRepository.save(message);
         chatroomRepository.save(chatroom);
     }
+    public Chatroom getChatroom(Long chatroomId){
+        return chatroomRepository.findById(chatroomId).orElseThrow(()-> new IllegalStateException("Chatroom #"+chatroomId+" doesn't exist!"));
+    }
+    public void deleteChatroom(Long chatroomId){
+        userRepository.deleteById(chatroomId);
+    }
 }

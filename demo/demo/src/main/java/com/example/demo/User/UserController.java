@@ -27,4 +27,14 @@ public class UserController {
             @PathVariable("chatroomId") Long chatroomId){
         UserService.addUserToChatroom(userId,chatroomId);
     }
+
+    @GetMapping("/getUser")
+    public User getUser(Long userId) {
+       return UserService.getUser(userId);
+    }
+
+    @DeleteMapping("/deleteUser")
+    public void deleteUser(Long userId){
+        UserService.deleteUser(userId);
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.Message;
 
+import com.example.demo.Chatroom.Chatroom;
 import com.example.demo.User.User;
 import com.example.demo.User.UserRepository;
 import jakarta.transaction.Transactional;
@@ -37,5 +38,11 @@ public class MessageService {
         message.setUser(user);
         userRepository.save(user);
         messageRepository.save(message);
+    }
+    public Message getMessage(Long messageId){
+        return messageRepository.findById(messageId).orElseThrow(()-> new IllegalStateException("Chatroom #"+messageId+" doesn't exist!"));
+    }
+    public void deleteMessage(Long messageId){
+        messageRepository.deleteById(messageId);
     }
 }
