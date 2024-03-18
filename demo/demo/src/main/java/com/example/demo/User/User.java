@@ -45,4 +45,38 @@ public class User {
 
     public User() {
     }
+
+    public User(Long id, String fName, String lName, String email, Boolean admin, Set<Chatroom> chatrooms, Set<Message> messages) {
+        this.id = id;
+        this.fName = fName;
+        this.lName = lName;
+        this.email = email;
+        this.admin = admin;
+        this.chatrooms = chatrooms;
+        this.messages = messages;
+    }
+
+    public User(String fName, String lName, String email, Boolean admin, Set<Chatroom> chatrooms, Set<Message> messages) {
+        this.fName = fName;
+        this.lName = lName;
+        this.email = email;
+        this.admin = admin;
+        this.chatrooms = chatrooms;
+        this.messages = messages;
+    }
+
+    public User(String fName, String lName, String email, Boolean admin) {
+        this.fName = fName;
+        this.lName = lName;
+        this.email = email;
+        this.admin = admin;
+    }
+
+    public User(Long id, String fName, String lName, String email, Boolean admin) {
+        this.id = id;
+        this.fName = fName;
+        this.lName = lName;
+        this.email = email;
+        this.admin = admin;
+    }
 }

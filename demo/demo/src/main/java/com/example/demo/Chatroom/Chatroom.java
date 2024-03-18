@@ -41,4 +41,26 @@ public class Chatroom {
 
     public Chatroom() {
     }
+
+    public Chatroom(Long id, String name, Set<User> users, Set<Message> messages) {
+        this.id = id;
+        this.name = name;
+        this.users = users;
+        this.messages = messages;
+    }
+
+    public Chatroom(String name, Set<User> users, Set<Message> messages) {
+        this.name = name;
+        this.users = users;
+        this.messages = messages;
+    }
+
+    public Chatroom(String name) {
+        this.name = name;
+    }
+
+    public Chatroom(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

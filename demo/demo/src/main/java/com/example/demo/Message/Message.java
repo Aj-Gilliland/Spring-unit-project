@@ -53,4 +53,33 @@ public class Message {
     public Message() {
     }
 
+    public Message(Long id, User user, String content, LocalDate postDate, Set<Message> replies, Set<Chatroom> chatrooms) {
+        this.id = id;
+        this.user = user;
+        this.content = content;
+        this.postDate = postDate;
+        this.replies = replies;
+        this.chatrooms = chatrooms;
+    }
+
+    public Message(User user, String content, LocalDate postDate, Set<Message> replies, Set<Chatroom> chatrooms) {
+        this.user = user;
+        this.content = content;
+        this.postDate = postDate;
+        this.replies = replies;
+        this.chatrooms = chatrooms;
+    }
+
+    public Message(User user, String content, LocalDate postDate) {
+        this.user = user;
+        this.content = content;
+        this.postDate = postDate;
+    }
+
+    public Message(Long id, User user, String content, LocalDate postDate) {
+        this.id = id;
+        this.user = user;
+        this.content = content;
+        this.postDate = postDate;
+    }
 }
