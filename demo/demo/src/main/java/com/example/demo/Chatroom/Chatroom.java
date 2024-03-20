@@ -29,9 +29,9 @@ public class Chatroom {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "chatroom_sequence")
     private Long id;
     private String name;
-    @ManyToMany(mappedBy = "chatrooms")
+    @ManyToMany(mappedBy = "chatrooms", cascade = CascadeType.REMOVE)
     private Set<User> users = new HashSet<>();//defines all the users in the chatroom
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(
             name = "messages_in_chatroom",
             joinColumns = @JoinColumn(name = "chatroom_id"),

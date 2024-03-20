@@ -33,14 +33,14 @@ public class User {
     private String lName;//last name
     private String email;//email
     private Boolean admin;// checks if user is an admin
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(
             name = "user_chatrooms",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "chatroom_id")
     )
     private Set<Chatroom> chatrooms = new HashSet<>();//all chatrooms the user is in
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user" ,cascade = CascadeType.REMOVE)
     private Set<Message> messages = new HashSet<>();//all messages owned by a user(history)
 
     public User() {

@@ -7,9 +7,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.persistence.SequenceGenerator;
 import lombok.Data;
-
 import lombok.EqualsAndHashCode;
-
 import java.time.LocalDate;
 import java.util.*;
 
@@ -32,7 +30,7 @@ public class Message {
             generator = "msg_sequence"
     )
     private Long id;
-    @ManyToOne(cascade = CascadeType.DETACH)
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(
             name = "user_id",
             referencedColumnName = "id"
@@ -40,14 +38,14 @@ public class Message {
     private User user;//the person who owns the message
     private String content;//content of message
     private LocalDate postDate;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(//this is not broken DO NOT TOUCH
             name = "message_thread",
             joinColumns = @JoinColumn(name = "message_id"),
             inverseJoinColumns = @JoinColumn(name = "reply_id")
     )
     private Set<Message> replies = new HashSet<>();//the actual message that is being replied with
-    @ManyToMany(mappedBy = "messages")
+    @ManyToMany(mappedBy = "messages" ,cascade = CascadeType.REMOVE)
     private Set<Chatroom> chatrooms = new HashSet<>();//links message to a chatroom
 
     public Message() {
