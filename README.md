@@ -1,9 +1,9 @@
 # Spring-unit-project
 
-## Messenger.Nerd
+## Talkify Api
 
 ### **DESCRIPTION**
-The purpose of Messenger.Nerd is to provide a secure, cloud-based solution for message storage, offering enhanced security over local services.
+The purpose of Talkify Api is to provide a secure, cloud-based solution for message storage, offering enhanced security over local services.
 
 ### **KEY FEATURES**
 
