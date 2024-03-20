@@ -43,6 +43,9 @@ Developers first need to choose a structure on how they plan on setting up the m
 
 VIEW ALL MESSSAGES
 ```GET http://localhost:8080/messages/getAll```
+<div>
+<img style="width: 20%;" src="messages.png" alt="messages end point">
+</div>
 
 MAKE MESSAGE
 ```
@@ -65,6 +68,9 @@ ADD A REPLY TO A MESSAGE
 
 VIEW ALL USERS
 ```GET http://localhost:8080/user/getAll```
+<div>
+<img style="width: 20%;" src="users.png" alt="users end point">
+</div>
 
 MAKE USER
 ```
@@ -85,6 +91,9 @@ ADD USER TO CHAT ROOM AND A CHATROOM TO USER
 
 VIEW ALL CHATROOMS
 ```GET http://localhost:8080/chatrooms/getAll```
+<div>
+<img style="width: 20%;" src="chatrooms.png" alt="chatrooms end point">
+</div>
 
 MAKE A CHATROOM
 ```
